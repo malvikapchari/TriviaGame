@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+    <div id ="questions">
+            <h1>Time Remaining: </h1>
+            <div id ="time-remaining"></div> <br>
+           <div id = "q1">Question 1 : Which sea creature has three hearts? </div>  <br>
+
+            <button id ="q1answer" type="button" class="btn btn-light">Octopus</button>
+            <button id ="q1b1" type="button" class="btn btn-light">Whale</button>
+            <button id ="q1b2"  type="button" class="btn btn-light">Turtle</button>
+            <button id ="q1b3" type="button" class="btn btn-light">Sea Horse</button>
+
+            <div id = "q2">Question 2 The oceans cover ______ of the Earth's surface. </div>  <br>
+
+            
+
+            <button id ="q2b1" type="button" class="btn btn-light">10%</button>
+            <button id ="q2b2"  type="button" class="btn btn-light">30%</button>
+            <button id ="q2answer" type="button" class="btn btn-light">70%</button>
+            <button id ="q2b3" type="button" class="btn btn-light">50%</button>
+
+            <div id = "q3">Question 3 : Which ocean is the largest? </div>  <br>
+
+            
+            <button id ="q3b1" type="button" class="btn btn-light">Atlantic</button>
+            <button id ="q3answer" type="button" class="btn btn-light">Pacific</button>
+            <button id ="q3b2"  type="button" class="btn btn-light">Indian</button>
+            <button id ="q3b3" type="button" class="btn btn-light">Arctic</button>
+
+            <div id = "q4">Question 4 :  How does water move around the world?</div>  <br>
+
+            <button id ="q4answer" type="button" class="btn btn-light">Wind/Gravity</button>
+            <button id ="q4b1" type="button" class="btn btn-light">It just does</button>
+            <button id ="q4b2"  type="button" class="btn btn-light">Movement of the sea creatures</button>
+            <button id ="q4b3" type="button" class="btn btn-light">Sand</button>
+
+            <div id = "q5">Question 5 : Where would you find a crab's teeth? </div>  <br>
+
+            <button id ="q5answer" type="button" class="btn btn-light">Stomach</button>
+            <button id ="q5b1" type="button" class="btn btn-light">Heart</button>
+            <button id ="q5b2"  type="button" class="btn btn-light">Head</button>
+            <button id ="q5b3" type="button" class="btn btn-light">Legs</button>
+
+            <div id = "q6">Question 6 : Which is the only creature that can see infrared and UV light? </div>  <br>
+
+            
+            <button id ="q6b1" type="button" class="btn btn-light">Whale</button>
+            <button id ="q6b2"  type="button" class="btn btn-light">Turtle</button>
+            <button id ="q6b3" type="button" class="btn btn-light">Nemo</button>
+            <button id ="q6answer" type="button" class="btn btn-light">Goldfish</button>
+
+            <div id = "q7">Question 7 : Why do dolphins jump out of the water?</div>  <br>
+
+            
+            <button id ="q7b1" type="button" class="btn btn-light">For playfullneess</button>
+            <button id ="q7answer" type="button" class="btn btn-light">It's easier to move in the air</button>
+            <button id ="q7b2"  type="button" class="btn btn-light">To breathe</button>
+            <button id ="q7b3" type="button" class="btn btn-light">To see what's ahead</button>
+
+            <div id="done"><button type="button" class="btn btn-light">Done</button></div>
+    </div>
+
+    <div id ="after">
+        <div id ="correct"></div>
+        <div id ="incorrect"></div>
+
+    </div>
+
+   
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+var countStart = 100; 
+
+var countDown;
+
+var correctAnswers= 0; 
+
+var incorrectAnswers = 0;
+
+function run() {
+
+    countDown = setInterval(decrement, 1000);
+}
+
+function decrement() {
+
+    countStart--;
+
+    $("#time-remaining").html("<h1>" + countStart + "</h1>");
+
+    if (countStart === 0){
+    $("#questions").replaceWith("Num Correct:" + correctAnswers+ "<br>" + "Incorrect:" + incorrectAnswers);
+   
+}
+
+    stop();
+
+}
+function stop() { 
+if (countStart == 0){
+    clearInterval(countDown);
+}
+}
+run();
+
+$("#q1answer").on("click", function(){
+
+    correctAnswers ++;
+    console.log ("The correct Answer amt: " + correctAnswers);
+  
+})
+
+$("#q1b1").on("click", function(){
+
+correctAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q1b2").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q1b3").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The correct Answer amt: " + incorrectAnswers);
+
+})
+
+$("#q2answer").on("click", function(){
+
+correctAnswers ++;
+console.log ("The correct Answer amt: " + correctAnswers);
+
+})
+
+$("#q2b1").on("click", function(){
+
+correctAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q2b2").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q2b3").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The correct Answer amt: " + incorrectAnswers);
+
+})
+$("#q3answer").on("click", function(){
+
+correctAnswers ++;
+console.log ("The correct Answer amt: " + correctAnswers);
+
+})
+
+$("#q3b1").on("click", function(){
+
+correctAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q3b2").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q3b3").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The correct Answer amt: " + incorrectAnswers);
+
+})
+$("#q4answer").on("click", function(){
+
+correctAnswers ++;
+console.log ("The correct Answer amt: " + correctAnswers);
+
+})
+
+$("#q4b1").on("click", function(){
+
+correctAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q4b2").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q4b3").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The correct Answer amt: " + incorrectAnswers);
+
+})
+$("#q5answer").on("click", function(){
+
+correctAnswers ++;
+console.log ("The correct Answer amt: " + correctAnswers);
+
+})
+
+$("#q5b1").on("click", function(){
+
+correctAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q5b2").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q5b3").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The correct Answer amt: " + incorrectAnswers);
+
+})
+$("#q6answer").on("click", function(){
+
+correctAnswers ++;
+console.log ("The correct Answer amt: " + correctAnswers);
+
+})
+
+$("#q6b1").on("click", function(){
+
+correctAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q6b2").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q6b3").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The correct Answer amt: " + incorrectAnswers);
+
+})
+$("#q7answer").on("click", function(){
+
+correctAnswers ++;
+console.log ("The correct Answer amt: " + correctAnswers);
+
+})
+
+$("#q7b1").on("click", function(){
+
+correctAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q7b2").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The incorrect Answer amt: " + incorrectAnswers);
+
+})
+$("#q7b3").on("click", function(){
+
+incorrectAnswers ++;
+console.log ("The correct Answer amt: " + incorrectAnswers);
+
+})
+
+$("#done").on("click", function(){
+
+$("#questions").replaceWith("Num Correct:" + correctAnswers+ "<br>" + "Incorrect:" + incorrectAnswers);
+
+})
+
+
+
+    </script>
+
+
+</body>
+</html>
